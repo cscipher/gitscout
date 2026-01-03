@@ -1,7 +1,10 @@
 import 'package:git_scout/core/db/app_db.dart';
 import 'package:git_scout/core/db/hive_db/hive_constants.dart';
 import 'package:hive_ce/hive_ce.dart';
+import 'package:injectable/injectable.dart';
 
+@Environment(Environment.prod)
+@LazySingleton(as: AppDb)
 class HiveDb implements AppDb {
   late final Box<dynamic> _db;
 
