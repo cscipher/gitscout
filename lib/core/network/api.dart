@@ -1,27 +1,27 @@
 import 'package:dio/dio.dart';
-import 'package:injectable/injectable.dart';
+import 'package:git_scout/core/network/exceptions/api_exception.dart';
+import 'package:git_scout/core/prelude/result.dart';
 
-@lazySingleton
 abstract class IApiClientContract {
-  Future<Response<dynamic>> get(
+  Future<Result<Response<dynamic>, ApiException>> get(
     String path, {
     Map<String, dynamic>? headers,
     Map<String, dynamic>? queryParameters,
   });
 
-  Future<Response<dynamic>> post(
+  Future<Result<Response<dynamic>, ApiException>> post(
     String path, {
     Map<String, dynamic>? headers,
     dynamic body,
   });
 
-  Future<Response<dynamic>> put(
+  Future<Result<Response<dynamic>, ApiException>> put(
     String path, {
     Map<String, dynamic>? headers,
     dynamic body,
   });
 
-  Future<Response<dynamic>> delete(
+  Future<Result<Response<dynamic>, ApiException>> delete(
     String path, {
     Map<String, dynamic>? headers,
     Map<String, dynamic>? queryParameters,
