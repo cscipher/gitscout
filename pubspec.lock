@@ -82,7 +82,7 @@ packages:
     source: hosted
     version: "4.1.1"
   build_runner:
-    dependency: "direct main"
+    dependency: "direct dev"
     description:
       name: build_runner
       sha256: "110c56ef29b5eb367b4d17fc79375fa8c18a6cd7acd92c05bb3986c17a079057"
@@ -372,10 +372,18 @@ packages:
     dependency: "direct main"
     description:
       name: injectable
-      sha256: "32b36a9d87f18662bee0b1951b81f47a01f2bf28cd6ea94f60bc5453c7bf598c"
+      sha256: "29559f7e3daebf0084597de86a825ae7f149d9e30264b7fbc71d1069ae82697d"
       url: "https://pub.dev"
     source: hosted
-    version: "2.7.1+4"
+    version: "2.6.0"
+  injectable_generator:
+    dependency: "direct dev"
+    description:
+      name: injectable_generator
+      sha256: "309c3f3546160dd00b575f16b341a6a3025479950441bcc7fcb2f8404a40d326"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.9.1"
   io:
     dependency: transitive
     description:
@@ -632,6 +640,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.5.0"
+  recase:
+    dependency: transitive
+    description:
+      name: recase
+      sha256: e4eb4ec2dcdee52dcf99cb4ceabaffc631d7424ee55e56f280bc039737f89213
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.1.0"
   shelf:
     dependency: transitive
     description:
