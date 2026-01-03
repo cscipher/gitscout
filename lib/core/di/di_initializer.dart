@@ -1,12 +1,20 @@
 import 'package:get_it/get_it.dart';
+import 'package:git_scout/core/di/di_initializer.config.dart';
+import 'package:git_scout/core/di/di_initializer_contract.dart';
+import 'package:injectable/injectable.dart';
 
-typedef GetItInitializer = void Function(GetIt getIt, {String? environment});
+final diContainer = GetIt.instance;
 
-abstract class AppDiInitializer {
-  const AppDiInitializer(this._initializers);
-  final GetItInitializer _initializers;
+@InjectableInit(
+  initializerName: 'init',
+  preferRelativeImports: false,
+  asExtension: true,
+)
+void configureDependencies(GetIt getIt, String? environment) =>
+    getIt.init(environment: environment);
 
-  void initialize(GetIt getIt) {
-    _initializers.call(getIt);
+void initializeDiConatiners({required List<AppInitializer> initializers}) {
+  for (final initializer in initializers) {
+    initializer.initialize(diContainer);
   }
 }
