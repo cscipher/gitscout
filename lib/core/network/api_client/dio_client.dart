@@ -1,18 +1,15 @@
 import 'package:dio/dio.dart';
 import 'package:git_scout/core/network/api.dart';
-import 'package:git_scout/core/network/api_client/dio_factory.dart';
 import 'package:git_scout/core/network/exceptions/api_exception.dart';
 import 'package:git_scout/core/network/extensions/api_result.dart';
 import 'package:git_scout/core/prelude/result.dart';
 import 'package:injectable/injectable.dart';
 
-@lazySingleton
-class DioClient implements IApiClientContract {
-  const DioClient(this._dioFactory);
+@LazySingleton(as: ApiClient)
+class DioClient implements ApiClient {
+  const DioClient(this._dio);
 
-  final DioFactory _dioFactory;
-
-  Dio get dio => _dioFactory.dio;
+  final Dio _dio;
 
   @override
   Future<Result<Response<dynamic>, ApiException>> get(
@@ -21,7 +18,7 @@ class DioClient implements IApiClientContract {
     Map<String, dynamic>? queryParameters,
   }) async {
     return Result.fromAsync(
-      () => dio.get(
+      () => _dio.get(
         path,
         options: Options(headers: headers),
         queryParameters: queryParameters,
@@ -36,7 +33,7 @@ class DioClient implements IApiClientContract {
     body,
   }) async {
     return Result.fromAsync(
-      () => dio.post(
+      () => _dio.post(
         path,
         options: Options(headers: headers),
         data: body,
@@ -51,7 +48,7 @@ class DioClient implements IApiClientContract {
     body,
   }) async {
     return Result.fromAsync(
-      () => dio.put(
+      () => _dio.put(
         path,
         options: Options(headers: headers),
         data: body,
@@ -67,7 +64,7 @@ class DioClient implements IApiClientContract {
     body,
   }) async {
     return Result.fromAsync(
-      () => dio.delete(
+      () => _dio.delete(
         path,
         options: Options(headers: headers),
         data: body,

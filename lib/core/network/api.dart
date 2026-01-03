@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:git_scout/core/network/exceptions/api_exception.dart';
 import 'package:git_scout/core/prelude/result.dart';
 
-abstract class IApiClientContract {
+abstract class ApiClient {
   Future<Result<Response<dynamic>, ApiException>> get(
     String path, {
     Map<String, dynamic>? headers,
