@@ -4,7 +4,7 @@ import 'package:injectable/injectable.dart';
 import 'package:logger/logger.dart';
 
 @Environment(Environment.dev)
-@lazySingleton
+@LazySingleton(as: IGsLoggerContract)
 class DevLogger implements IGsLoggerContract {
   const DevLogger(this._logger);
   final Logger _logger;
@@ -34,7 +34,7 @@ class DevLogger implements IGsLoggerContract {
   }
 
   @override
-  void logError(String message) {
-    _logger.e(message);
+  void logError(String message, {StackTrace? stackTrace, Object? error}) {
+    _logger.e(message, stackTrace: stackTrace, error: error);
   }
 }

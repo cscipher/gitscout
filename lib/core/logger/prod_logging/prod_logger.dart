@@ -8,11 +8,11 @@ import 'package:injectable/injectable.dart';
 */
 
 @Environment(Environment.prod)
-@lazySingleton
+@LazySingleton(as: IGsLoggerContract)
 class ProdLogger implements IGsLoggerContract {
   @override
   void log(String message, {GsLoggerLevel? level}) {}
 
   @override
-  void logError(String message) {}
+  void logError(String message, {StackTrace? stackTrace, Object? error}) {}
 }
