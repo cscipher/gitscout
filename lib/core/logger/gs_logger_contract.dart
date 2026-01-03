@@ -1,6 +1,6 @@
 import 'package:git_scout/core/logger/gs_logger_level.dart';
 
-abstract class IGsLoggerContract {
+abstract interface class IGsLoggerContract {
   void log(String message, {GsLoggerLevel? level});
   void logError(String message);
 }
