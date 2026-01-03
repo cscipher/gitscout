@@ -5,7 +5,7 @@ import 'package:injectable/injectable.dart';
 @Environment(Environment.prod)
 @lazySingleton
 class GsAnalyticsLogger {
-  const GsAnalyticsLogger._(this._modules);
+  const GsAnalyticsLogger(this._modules);
 
   final List<IGsAnalyticsContract> _modules;
 
